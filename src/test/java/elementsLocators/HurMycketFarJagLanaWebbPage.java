@@ -1,13 +1,12 @@
 package elementsLocators;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import tests.OpenWebPageTest;
 
 import java.util.List;
+
 
 public class HurMycketFarJagLanaWebbPage {
 
@@ -37,40 +36,58 @@ public class HurMycketFarJagLanaWebbPage {
     // ------------- Top menu  --------------------------
 
     @FindBy(xpath = "//a[@href='/lana/'][contains(@class,'top-menu')]")
-    public WebElement lanaButton;
+    public WebElement lanaTopMenu;
 
     @FindBy(xpath = "//a[@href='/kort-och-betala/'][contains(@class,'top-menu')]")
-    public WebElement kortOchBetalaButton;
+    public WebElement kortOchBetalaTopMenu;
 
     @FindBy(xpath = "//a[@href='/spara/'][contains(@class,'top-menu')]")
-    public WebElement sparaButton;
+    public WebElement sparaTopMenu;
 
     @FindBy(xpath = "//a[@href='/forsakra/'][contains(@class,'top-menu')]")
-    public WebElement forsakraButton;
+    public WebElement forsakraTopMenu;
 
     @FindBy(xpath = "//a[@href='/vara-tips/'][contains(@class,'top-menu')]")
-    public WebElement varaTipsButton;
+    public WebElement varaTipsTopMenu;
 
     @FindBy(xpath = "//a[@href='/kundservice/'][contains(@class,'top-menu')]")
-    public WebElement kundserviceButton;
+    public WebElement kundserviceTopMenu;
 
     @FindBy(xpath = "//a[@href='/bli-kund/'][contains(@class,'top-menu')]")
-    public WebElement bliBankkundButton;
+    public WebElement bliBankkundTopMenu;
 
 
     // ------------- BreadCrumb menu  --------------------------
 
-    @FindBy(xpath = "//a[text()='Hem']")
-    public WebElement hemButton;
+    @FindBy(xpath = "//li[contains(@class, 'breadcrumbs_breadcrumbsItem__2YqJ9')]")
+    public List<WebElement> breadCrumbMenu;
 
-    @FindBy(xpath = "//a[@href='/lana/']")
-    public List<WebElement> lanaButtons;
 
-    @FindBy(xpath = "//a[@href='/lana/privatlan/']")
-    public List<WebElement> privatlanButtons;
+    // ------------- Loan amount indication  --------------------------
 
-    @FindBy(xpath = "//a[@href='/lana/privatlan/hur-mycket-far-jag-lana/']")
-    public List<WebElement> hurMycketFarJagLanaButton;
+    @FindBy(xpath = "//span[text() = 'Har du betalningsanmärkning?']")
+    public List<WebElement> betalningsMarkningText;
 
+    @FindBy(xpath = "//span[text() = 'Hur många är ni som söker?']")
+    public List<WebElement> hurMangaNiText;
+
+    @FindBy(xpath = "//span[text() = 'Månadsinkomst']")
+    public List<WebElement> manadsInkomnstText;
+
+    @FindBy(xpath = "//span[text() = 'Antal barn i hushållet.']")
+    public List<WebElement> antalBarnText;
+
+    @FindBy(xpath = "//span[text() = 'Andra privatlån och krediter (total skuld)']")
+    public List<WebElement> totalSkuldText;
+
+
+    @FindBy(xpath = "//div[@class = 'combo-button_buttonContent__pIl-t']")
+    public List<WebElement> comboButtons;
+
+    @FindBy(xpath = "monthlyIncome")
+    public List<WebElement> manadsIncomstInput;
+
+    @FindBy(xpath = "existingLoanCredit")
+    public List<WebElement> totalSkuldInput;
 
 }

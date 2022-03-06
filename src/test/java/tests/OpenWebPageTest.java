@@ -4,13 +4,16 @@ package tests;
 import elementsLocators.HurMycketFarJagLanaWebbPage;
 import org.junit.jupiter.api.*;
 
+
 import org.openqa.selenium.WebDriver;
 
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+
 
 import static base.allTestsMethods.getURLFromProperties;
 import static base.ElementsInteractingMethods.*;
@@ -22,9 +25,9 @@ import static elementsLocators.HurMycketFarJagLanaWebbPage.*;
 public class OpenWebPageTest {
 
     public static WebDriver driver;
-    public static WebDriverWait wait;
+
     static String url;
-    Boolean statusOfElement;
+
     HurMycketFarJagLanaWebbPage hurMycketLana = new HurMycketFarJagLanaWebbPage(driver);
     //ElementsInteractingMethods interactingMethods = new ElementsInteractingMethods();
 
@@ -44,7 +47,7 @@ public class OpenWebPageTest {
     }
 
     /*---------------------------------------------------------------------
-     * BeforeAll() method executes before all methods
+     * AfterAll() method executes before all methods
      *---------------------------------------------------------------------*/
     @AfterAll
     @Disabled
@@ -102,12 +105,12 @@ public class OpenWebPageTest {
 
         System.out.println("Method name is: " + "Test 4");
 
-        Assertions.assertTrue(isElementVisible(driver, hurMycketLana.lanaButton));
-        Assertions.assertTrue(isElementVisible(driver, hurMycketLana.kortOchBetalaButton));
-        Assertions.assertTrue(isElementVisible(driver, hurMycketLana.sparaButton));
-        Assertions.assertTrue(isElementVisible(driver, hurMycketLana.forsakraButton));
-        Assertions.assertTrue(isElementVisible(driver, hurMycketLana.varaTipsButton));
-        Assertions.assertTrue(isElementVisible(driver, hurMycketLana.bliBankkundButton));
+        Assertions.assertTrue(isElementVisible(driver, hurMycketLana.lanaTopMenu));
+        Assertions.assertTrue(isElementVisible(driver, hurMycketLana.kortOchBetalaTopMenu));
+        Assertions.assertTrue(isElementVisible(driver, hurMycketLana.sparaTopMenu));
+        Assertions.assertTrue(isElementVisible(driver, hurMycketLana.forsakraTopMenu));
+        Assertions.assertTrue(isElementVisible(driver, hurMycketLana.varaTipsTopMenu));
+        Assertions.assertTrue(isElementVisible(driver, hurMycketLana.bliBankkundTopMenu));
     }
 
     @DisplayName("Top menu elements are visible")
@@ -117,24 +120,61 @@ public class OpenWebPageTest {
 
         System.out.println("Method name is: " + "Test 5");
 
-        Assertions.assertTrue(isElementEnable(driver, hurMycketLana.lanaButton));
-        Assertions.assertTrue(isElementEnable(driver, hurMycketLana.kortOchBetalaButton));
-        Assertions.assertTrue(isElementEnable(driver, hurMycketLana.sparaButton));
-        Assertions.assertTrue(isElementEnable(driver, hurMycketLana.forsakraButton));
-        Assertions.assertTrue(isElementEnable(driver, hurMycketLana.varaTipsButton));
-        Assertions.assertTrue(isElementEnable(driver, hurMycketLana.bliBankkundButton));
+        Assertions.assertTrue(isElementEnable(driver, hurMycketLana.lanaTopMenu));
+        Assertions.assertTrue(isElementEnable(driver, hurMycketLana.kortOchBetalaTopMenu));
+        Assertions.assertTrue(isElementEnable(driver, hurMycketLana.sparaTopMenu));
+        Assertions.assertTrue(isElementEnable(driver, hurMycketLana.forsakraTopMenu));
+        Assertions.assertTrue(isElementEnable(driver, hurMycketLana.varaTipsTopMenu));
+        Assertions.assertTrue(isElementEnable(driver, hurMycketLana.bliBankkundTopMenu));
     }
 
-    @DisplayName("BreadCrumb menu elements ate visible")
+
+
+    @DisplayName("Try to hover over the element. Think how to test this.")
+    @Disabled
     @Test
-    public void test6_mainMenuBliBakkundIsSelected() throws IOException {
+    public void test6_hoverOverElements() throws IOException, InterruptedException {
 
-        System.out.println("Method name is: " + "Test 5");
+        System.out.println("Method name is: " + "Test 6");
 
-        Assertions.assertTrue(isElementVisible(driver, hurMycketLana.hemButton));
-        Assertions.assertTrue(isElementVisible(driver, hurMycketLana.lanaButtons.get(1)));
+        //Creating object of an Actions class
+        Actions action = new Actions(driver);
+
+        //Performing the mouse hover action on the target element.
+        action.moveToElement(hurMycketLana.lanaTopMenu).perform();
+        Thread.sleep(3000);
     }
 
+
+    @DisplayName("BreadCrumb menu elements are visible")
+    @Disabled
+    @Test
+    public void test7_breadCrumbMenuElementsAreVisible() throws IOException {
+
+        System.out.println("Method name is: " + "Test 7");
+
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+        Assertions.assertTrue(isElementVisible(driver, hurMycketLana.breadCrumbMenu.get(0)));
+        Assertions.assertTrue(isElementVisible(driver, hurMycketLana.breadCrumbMenu.get(1)));
+        Assertions.assertTrue(isElementVisible(driver, hurMycketLana.breadCrumbMenu.get(2)));
+        Assertions.assertTrue(isElementVisible(driver, hurMycketLana.breadCrumbMenu.get(3)));
+    }
+
+    @DisplayName("BreadCrumb menu elements are visible")
+    @Disabled
+    @Test
+    public void test8_betalningsAnmarkning() throws IOException {
+
+        System.out.println("Method name is: " + "Test 8");
+
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+        Assertions.assertTrue(isElementVisible(driver, hurMycketLana.breadCrumbMenu.get(0)));
+        Assertions.assertTrue(isElementVisible(driver, hurMycketLana.breadCrumbMenu.get(1)));
+        Assertions.assertTrue(isElementVisible(driver, hurMycketLana.breadCrumbMenu.get(2)));
+        Assertions.assertTrue(isElementVisible(driver, hurMycketLana.breadCrumbMenu.get(3)));
+    }
 
 
 }//end class

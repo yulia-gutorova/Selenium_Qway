@@ -33,6 +33,7 @@ public class ElementsInteractingMethods extends SetUp {
     {
         Actions actions = new Actions(driver);
         actions.moveToElement(element);
+        waitUntilVisibility(driver, element);
         return element.isDisplayed();
     }
 
@@ -69,7 +70,7 @@ public class ElementsInteractingMethods extends SetUp {
     /*---------------------------------------------------------------------
      * Method sendKeys() to get text from the element
      *---------------------------------------------------------------------*/
-    public static String getText(WebDriver driver, WebElement element) {
+    public static String getTextFromElement(WebDriver driver, WebElement element) {
 
             Actions actions = new Actions(driver);
             actions.moveToElement(element);
