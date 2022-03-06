@@ -12,11 +12,11 @@ public class allTestsMethods {
     public static String getURLFromProperties(String file, String key) throws IOException {
 
         Properties urlProps = new Properties();
-        //urlProps.load(new FileInputStream("src\\test\\java\\pageURLs.properties"));
         urlProps.load(new FileInputStream(file));
-
         String url = urlProps.getProperty(key);
         return url;
     }
+
+
 
 }

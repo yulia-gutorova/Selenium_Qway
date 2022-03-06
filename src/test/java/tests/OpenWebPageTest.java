@@ -41,31 +41,100 @@ public class OpenWebPageTest {
 
         url = getURLFromProperties("src\\test\\java\\pageURL.properties", "hur-mycket-far-jag-lana");
         driver.get(url);
-
     }
+
+    /*---------------------------------------------------------------------
+     * BeforeAll() method executes before all methods
+     *---------------------------------------------------------------------*/
+    @AfterAll
+    @Disabled
+    public static void tearDown() throws IOException {
+
+        //driver.quit();
+    }
+
+    //---------------------------- Tests ----------------------------------
 
     @DisplayName("WebPage url is right")
     @Test
     public void test1_testPageUrlIsRight() throws IOException {
 
-        //WebDriverWait wait = new WebDriverWait(driver, 10);
-        //wait.until(ExpectedConditions.visibilityOf(cookiesButton));
-
-       waitUntilVisibility(driver, hurMycketLana.cookiesButton);
-       statusOfElement = isElementVisible(hurMycketLana.cookiesButton);
-       clickOnButton(driver, hurMycketLana.cookiesButton);
+        System.out.println("Method name is: " + "Test 1");
+        waitUntilVisibility(driver, hurMycketLana.cookiesButton);
+        clickOnButton(driver, hurMycketLana.cookiesButton);
 
         String currentURL = driver.getCurrentUrl();
         Assertions.assertTrue(url.equalsIgnoreCase(currentURL));
-
     }
 
-    @DisplayName("Second method")
+    @DisplayName("Logo and header elements are visible")
+    @Disabled
     @Test
-    public void test2() throws IOException {
+    public void test2_LogoAndHeaderElementsAreVisible() throws IOException {
 
-        System.out.println("Method name is: " + "Second method");
+        System.out.println("Method name is: " + "Test 2");
 
+        Boolean logoICABankenStatus = isElementVisible(driver, hurMycketLana.logoICABanken);
+
+        Boolean searchHeaderButtonStatus = isElementVisible(driver, hurMycketLana.searchHeaderButton);
+        Boolean logInButtonStatus = isElementVisible(driver, hurMycketLana.logInButton);
+
+        Assertions.assertTrue(logoICABankenStatus, "Element is not visible");
+        Assertions.assertTrue(searchHeaderButtonStatus, "Element is not visible");
+        Assertions.assertTrue(logInButtonStatus, "Element is not visible");
     }
 
-}
+    @DisplayName("Header elements are enable")
+    @Disabled
+    @Test
+    public void test3_HeaderElementsAreEnabled() throws IOException {
+
+        System.out.println("Method name is: " + "Test 3");
+
+        Assertions.assertTrue(isElementEnable(driver, hurMycketLana.searchHeaderButton));
+        Assertions.assertTrue(isElementEnable(driver, hurMycketLana.logInButton));
+    }
+
+    @DisplayName("Top menu elements are visible")
+    @Disabled
+    @Test
+    public void test4_mainMenuElementsAreVisible() throws IOException {
+
+        System.out.println("Method name is: " + "Test 4");
+
+        Assertions.assertTrue(isElementVisible(driver, hurMycketLana.lanaButton));
+        Assertions.assertTrue(isElementVisible(driver, hurMycketLana.kortOchBetalaButton));
+        Assertions.assertTrue(isElementVisible(driver, hurMycketLana.sparaButton));
+        Assertions.assertTrue(isElementVisible(driver, hurMycketLana.forsakraButton));
+        Assertions.assertTrue(isElementVisible(driver, hurMycketLana.varaTipsButton));
+        Assertions.assertTrue(isElementVisible(driver, hurMycketLana.bliBankkundButton));
+    }
+
+    @DisplayName("Top menu elements are visible")
+    @Disabled
+    @Test
+    public void test5_mainMenuElementsAreEnable() throws IOException {
+
+        System.out.println("Method name is: " + "Test 5");
+
+        Assertions.assertTrue(isElementEnable(driver, hurMycketLana.lanaButton));
+        Assertions.assertTrue(isElementEnable(driver, hurMycketLana.kortOchBetalaButton));
+        Assertions.assertTrue(isElementEnable(driver, hurMycketLana.sparaButton));
+        Assertions.assertTrue(isElementEnable(driver, hurMycketLana.forsakraButton));
+        Assertions.assertTrue(isElementEnable(driver, hurMycketLana.varaTipsButton));
+        Assertions.assertTrue(isElementEnable(driver, hurMycketLana.bliBankkundButton));
+    }
+
+    @DisplayName("BreadCrumb menu elements ate visible")
+    @Test
+    public void test6_mainMenuBliBakkundIsSelected() throws IOException {
+
+        System.out.println("Method name is: " + "Test 5");
+
+        Assertions.assertTrue(isElementVisible(driver, hurMycketLana.hemButton));
+        Assertions.assertTrue(isElementVisible(driver, hurMycketLana.lanaButtons.get(1)));
+    }
+
+
+
+}//end class

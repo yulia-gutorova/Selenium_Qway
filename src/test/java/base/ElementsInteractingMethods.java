@@ -24,17 +24,37 @@ public class ElementsInteractingMethods extends SetUp {
         //driver = new ChromeDriver();
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.visibilityOf(element));
-
     }
 
     /*---------------------------------------------------------------------
      * Method isVisible() to verify that element is displayed
      *---------------------------------------------------------------------*/
-    public static boolean isElementVisible(WebElement element)
+    public static boolean isElementVisible(WebDriver driver, WebElement element)
     {
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element);
         return element.isDisplayed();
     }
 
+    /*---------------------------------------------------------------------
+     * Method isVisible() to verify that element is enabled
+     *---------------------------------------------------------------------*/
+    public static boolean isElementEnable(WebDriver driver, WebElement element)
+    {
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element);
+        return element.isEnabled();
+    }
+
+    /*---------------------------------------------------------------------
+     * Method isVisible() to verify that element is selected
+     *---------------------------------------------------------------------*/
+    public static boolean isElementSelected(WebDriver driver, WebElement element)
+    {
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element);
+        return element.isSelected();
+    }
 
     /*---------------------------------------------------------------------
      * Method clickOnButton() to click on element
@@ -43,15 +63,21 @@ public class ElementsInteractingMethods extends SetUp {
     {
         Actions actions = new Actions(driver);
         actions.moveToElement(element);
-        if(element.isDisplayed())
-        {
-            element.click();
-        }
-        else
-        {
-            System.out.println("Element is not displayed on the page");
-        }
+        element.click();
     }
+
+    /*---------------------------------------------------------------------
+     * Method sendKeys() to get text from the element
+     *---------------------------------------------------------------------*/
+    public static String getText(WebDriver driver, WebElement element) {
+
+            Actions actions = new Actions(driver);
+            actions.moveToElement(element);
+            String text = element.getText();
+            return text;
+    }
+
+
 
 
 }//end class
