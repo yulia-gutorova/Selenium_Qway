@@ -1,19 +1,14 @@
 package tests;
 
-
 import elementsLocators.HurMycketFarJagLanaWebbPage;
 import org.junit.jupiter.api.*;
-
-
 import org.openqa.selenium.WebDriver;
-
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
-
 
 import static base.allTestsMethods.getURLFromProperties;
 import static base.ElementsInteractingMethods.*;
@@ -166,14 +161,6 @@ public class OpenWebPageTest {
     @Test
     public void test8_betalningsAnmarkning() throws IOException {
 
-        System.out.println("Method name is: " + "Test 8");
-
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-        Assertions.assertTrue(isElementVisible(driver, hurMycketLana.breadCrumbMenu.get(0)));
-        Assertions.assertTrue(isElementVisible(driver, hurMycketLana.breadCrumbMenu.get(1)));
-        Assertions.assertTrue(isElementVisible(driver, hurMycketLana.breadCrumbMenu.get(2)));
-        Assertions.assertTrue(isElementVisible(driver, hurMycketLana.breadCrumbMenu.get(3)));
     }
 
 
