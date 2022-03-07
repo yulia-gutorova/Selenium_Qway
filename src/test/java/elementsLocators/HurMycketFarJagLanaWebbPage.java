@@ -80,14 +80,35 @@ public class HurMycketFarJagLanaWebbPage {
     @FindBy(xpath = "//span[text() = 'Andra privatlån och krediter (total skuld)']")
     public List<WebElement> totalSkuldText;
 
+    @FindBy(xpath = "//span[@class='counter_item__1Pd4V']")
+    public WebElement antalBarnCounter;
+
+    @FindBy(xpath = "//span[text() = 'Hur ser ditt boende ut?']")
+    public List<WebElement> hurSerDittBoendeUtText;
+
+
 
     @FindBy(xpath = "//div[@class = 'combo-button_buttonContent__pIl-t']")
     public List<WebElement> comboButtons;
 
-    @FindBy(xpath = "monthlyIncome")
-    public List<WebElement> manadsIncomstInput;
+    @FindBy(xpath = "//button[@class='counter_btnDec__1Q_Yr']")
+    public List<WebElement> minusCounterButton;
 
-    @FindBy(xpath = "existingLoanCredit")
-    public List<WebElement> totalSkuldInput;
+    @FindBy(xpath = "//button[@class='counter_btnInc__2QJe0']")
+    public List<WebElement> plusCounterButton;
+
+    @FindBy(xpath = "//*[@class='Check form-text-field_icon__3olOJ form-text-field_ok__22Jsj icon_defaultColor__3kj2w']")
+    public List<WebElement> checkFormButtons;
+
+    @FindBy(xpath = "//*[@class='//*[@class='SortingDown dropdown_control__3rMYT svg_icon_color_e3000b']']")
+    public WebElement dropDownButton;
+
+
+    @FindBy(xpath = "//input[@name='monthlyIncome']")
+    public WebElement manadsIncomstInput;
+
+    @FindBy(xpath = "//input[@name='existingLoanCredit']")
+    public WebElement totalSkuldInput;
+
 
 }

@@ -26,7 +26,7 @@ public class ElementsInteractingMethods extends SetUp {
     }
 
     /*---------------------------------------------------------------------
-     * Method isVisible() to verify that element is displayed
+     * Method isElementVisible() to verify that element is displayed
      *---------------------------------------------------------------------*/
     public static boolean isElementVisible(WebDriver driver, WebElement element)
     {
@@ -37,7 +37,7 @@ public class ElementsInteractingMethods extends SetUp {
     }
 
     /*---------------------------------------------------------------------
-     * Method isVisible() to verify that element is enabled
+     * Method isElementEnable() to verify that element is enabled
      *---------------------------------------------------------------------*/
     public static boolean isElementEnable(WebDriver driver, WebElement element)
     {
@@ -47,7 +47,7 @@ public class ElementsInteractingMethods extends SetUp {
     }
 
     /*---------------------------------------------------------------------
-     * Method isVisible() to verify that element is selected
+     * Method isElementSelected() to verify that element is selected
      *---------------------------------------------------------------------*/
     public static boolean isElementSelected(WebDriver driver, WebElement element)
     {
@@ -67,7 +67,7 @@ public class ElementsInteractingMethods extends SetUp {
     }
 
     /*---------------------------------------------------------------------
-     * Method sendKeys() to get text from the element
+     * Method getTextFromElement() to get text from the element
      *---------------------------------------------------------------------*/
     public static String getTextFromElement(WebDriver driver, WebElement element) {
 
@@ -77,7 +77,16 @@ public class ElementsInteractingMethods extends SetUp {
             return text;
     }
 
+    /*---------------------------------------------------------------------
+     * Method getAttributeOfElement() to get attribute of the element
+     *---------------------------------------------------------------------*/
+    public static String getAttributeOfElement(WebDriver driver, String attribute, WebElement element) {
 
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element);
+        String attributeValue = element.getAttribute(attribute);
+        return attributeValue;
+    }
 
 
 }//end class
