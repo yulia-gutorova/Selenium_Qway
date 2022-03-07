@@ -208,7 +208,7 @@ public class HurMycketFarJagLanaWebbPageTest {
         }
 
         @DisplayName("Månadsinkomst element is visible and has a default value")
-        //@Disabled
+        @Disabled
         @Order(2)
         @Test
         public void manadsInkomstHasDefaultValue() throws IOException {
@@ -221,7 +221,7 @@ public class HurMycketFarJagLanaWebbPageTest {
         }
 
         @DisplayName("Total skuld element is visible and has a default value")
-        //@Disabled
+        @Disabled
         @Order(3)
         @Test
         public void antalBarnHasDefaultValue() throws IOException {
@@ -232,8 +232,8 @@ public class HurMycketFarJagLanaWebbPageTest {
             Assertions.assertTrue(elementAttribute.equalsIgnoreCase("0 kr")); //Test data should be separated
         }
 
-        @DisplayName("Loan amount indication elements are visible")
-        //@Disabled
+        @DisplayName("Antal barn element is visible and has a default value")
+        @Disabled
         @Order(4)
         @Test
         public void totalSkuldHasDefaultValue() throws IOException {
@@ -244,7 +244,47 @@ public class HurMycketFarJagLanaWebbPageTest {
             Assertions.assertTrue(elementAttribute.equalsIgnoreCase("0 st")); //Test data should be separated
         }
 
+        @DisplayName("Inspect Nej button")
+        //@Disabled
+        @Order(5)
+        @Test
+        public void nejButtonInspection() throws IOException {
 
+            driver.manage().timeouts().implicitlyWait( 10, TimeUnit.SECONDS);
+
+            Assertions.assertTrue(isElementVisible(driver, hurMycketLana.comboButtons.get(1)));
+            elementText = getTextFromElement(driver, hurMycketLana.comboButtons.get(1));
+            Assertions.assertTrue(elementText.equals("Nej"));
+
+
+        }
+
+        @DisplayName("Inspect Ja button")
+        //@Disabled
+        @Order(6)
+        @Test
+        public void nejButtonIsChecked() throws IOException, InterruptedException {
+
+            driver.manage().timeouts().implicitlyWait( 10, TimeUnit.SECONDS);
+
+            Assertions.assertTrue(isElementVisible(driver, hurMycketLana.comboButtons.get(0)));
+
+            elementText = getTextFromElement(driver, hurMycketLana.comboButtons.get(0));
+            Assertions.assertTrue(elementText.equals("Ja"));
+
+            Thread.sleep(3000);
+            clickOnButton(driver, hurMycketLana.comboButtons.get(0));
+            clickOnButton(driver, hurMycketLana.comboButtons.get(0));
+            Thread.sleep(3000);
+
+            Assertions.assertTrue(isElementVisible(driver, hurMycketLana.jaButtonErrorMessage));
+            elementText = getTextFromElement(driver, hurMycketLana.jaButtonErrorMessage);
+            System.out.println("Felmeddelande: "+ elementText);
+            Assertions.assertTrue(elementText.equals("Har du en betalningsanmärkning så kan vi inte bevilja dig ett lån."));
+
+            Assertions.assertTrue(!isElementEnable(driver, hurMycketLana.beraknaButton));
+
+        }
     }
 
 

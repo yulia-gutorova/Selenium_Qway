@@ -86,12 +86,17 @@ public class HurMycketFarJagLanaWebbPage {
     @FindBy(xpath = "//span[text() = 'Hur ser ditt boende ut?']")
     public List<WebElement> hurSerDittBoendeUtText;
 
+    @FindBy(xpath = "//div[@class = 'error-pane_errorMessage__3BEc2 ']")
+    public WebElement jaButtonErrorMessage;
 
 
     @FindBy(xpath = "//div[@class = 'combo-button_buttonContent__pIl-t']")
     public List<WebElement> comboButtons;
 
-    @FindBy(xpath = "//button[@class='counter_btnDec__1Q_Yr']")
+    @FindBy(xpath = "//button[text() = 'Beräkna']")
+    public WebElement beraknaButton;
+
+    @FindBy(xpath = "//button[@class = 'counter_btnDec__1Q_Yr']")
     public List<WebElement> minusCounterButton;
 
     @FindBy(xpath = "//button[@class='counter_btnInc__2QJe0']")
