@@ -18,7 +18,7 @@ public class HurMycketFarJagLanaWebbPage {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(xpath=("//button[text()='Godkänn alla cookies']"))
+    @FindBy(xpath=("//button[contains(text(), 'cookies')]"))
     public  WebElement cookiesButton;
 
     // ------------- Logo and header --------------------------

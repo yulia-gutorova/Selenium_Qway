@@ -26,14 +26,13 @@ public class OpenMobPageTest {
     public static WebDriverWait wait;
     static String url;
     HurMycketFarJagLanaWebbPage hurMycketLana = new HurMycketFarJagLanaWebbPage(driver);
+    String view;
 
     /*---------------------------------------------------------------------
      * BeforeAll() method executes before all methods
      *---------------------------------------------------------------------*/
     @BeforeAll
     public static void setUpp() throws IOException {
-
-
 
         Map<String, String> mobileEmulation = new HashMap<>();
 
@@ -45,20 +44,26 @@ public class OpenMobPageTest {
 
         chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation);
 
-        WebDriver driver = new ChromeDriver(chromeOptions);
+        driver = new ChromeDriver(chromeOptions);
 
 
 
         url = getURLFromProperties("src\\test\\java\\pageURL.properties", "hur-mycket-far-jag-lana");
         driver.get(url);
 
+
     }
 
     @DisplayName("Open a page")
     @Test
-    public void test1_openPage() throws IOException {
+    public void test1_openPage() throws IOException, InterruptedException {
 
-        System.out.println("Test 1");
+        waitUntilVisibility(driver, hurMycketLana.cookiesButton);
+        clickOnButton(driver, hurMycketLana.cookiesButton);
+        Thread.sleep(2000);
+
+        String currentURL = driver.getCurrentUrl();
+        Assertions.assertTrue(url.equalsIgnoreCase(currentURL));
 
 
     }
