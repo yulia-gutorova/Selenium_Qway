@@ -80,6 +80,11 @@ public class HurMycketFarJagLanaWebbPage {
     @FindBy(xpath = "//span[text() = 'Andra privatlån och krediter (total skuld)']")
     public List<WebElement> totalSkuldText;
 
+    @FindBy(xpath = "//span[text()= 'Boendekostnad']")
+    public WebElement boendekostnadText;
+
+
+
     @FindBy(xpath = "//span[@class='counter_item__1Pd4V']")
     public WebElement antalBarnCounter;
 
@@ -105,7 +110,7 @@ public class HurMycketFarJagLanaWebbPage {
     @FindBy(xpath = "//*[@class='Check form-text-field_icon__3olOJ form-text-field_ok__22Jsj icon_defaultColor__3kj2w']")
     public List<WebElement> checkFormButtons;
 
-    @FindBy(xpath = "//*[@class='//*[@class='SortingDown dropdown_control__3rMYT svg_icon_color_e3000b']']")
+    @FindBy(xpath = "//span[text() = 'Hur ser ditt boende ut?']")
     public WebElement dropDownButton;
 
 
@@ -114,6 +119,24 @@ public class HurMycketFarJagLanaWebbPage {
 
     @FindBy(xpath = "//input[@name='existingLoanCredit']")
     public WebElement totalSkuldInput;
+
+
+    @FindBy(xpath = "//li[contains(text(), 'Bostadsr')]")
+    public WebElement bostadsrattDropDown;
+
+    @FindBy(xpath = "//li[contains(text(), 'Hyresr')]")
+    public WebElement hyresrattDropDown;
+
+    @FindBy(xpath = "//li[text() = 'Villa']")
+    public WebElement villaDropDown;
+
+    @FindBy(xpath = "//li[text() = 'Annan']")
+    public WebElement annanDropDown;
+
+
+    @FindBy(xpath = "//div[@class = 'radio-buttons-option_text__2maXO']")
+    public List<WebElement> bostadkostnadenRadioButtons;
+
 
 
 }

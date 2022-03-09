@@ -48,7 +48,7 @@ public class OpenMobPageTest {
 
 
 
-        url = getURLFromProperties("src\\test\\java\\pageURL.properties", "hur-mycket-far-jag-lana");
+        url = getURLFromProperties("src\\test\\java\\project.properties", "hur-mycket-far-jag-lana");
         driver.get(url);
 
 

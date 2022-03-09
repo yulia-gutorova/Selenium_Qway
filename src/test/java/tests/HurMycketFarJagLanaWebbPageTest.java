@@ -3,14 +3,17 @@ package tests;
 import elementsLocators.HurMycketFarJagLanaWebbPage;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import static base.allTestsMethods.getURLFromProperties;
@@ -23,7 +26,7 @@ public class HurMycketFarJagLanaWebbPageTest {
 
     public static WebDriver driver;
 
-    static String url, view;
+    static String url, view ="", view1 = "", name = "Initial";
     String elementText, elementAttribute;
 
 
@@ -35,6 +38,9 @@ public class HurMycketFarJagLanaWebbPageTest {
      *---------------------------------------------------------------------*/
     @BeforeAll
     public static void setUpp() throws IOException {
+
+        name = getURLFromProperties("src\\test\\java\\project.properties", "pr");
+        System.out.println("POM property: " +name);
 
         System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\Java\\chromedriver.exe");
 
@@ -57,7 +63,7 @@ public class HurMycketFarJagLanaWebbPageTest {
                 break;
         }
 
-        url = getURLFromProperties("src\\test\\java\\pageURL.properties", "hur-mycket-far-jag-lana");
+        url = getURLFromProperties("src\\test\\java\\project.properties", "hur-mycket-far-jag-lana");
         driver.get(url);
 
     }
@@ -67,7 +73,7 @@ public class HurMycketFarJagLanaWebbPageTest {
      *---------------------------------------------------------------------*/
     @AfterAll
     @Disabled
-    public static void tearDown() throws IOException {
+    public static void tearDown()  {
 
         //driver.quit();
     }
@@ -77,7 +83,7 @@ public class HurMycketFarJagLanaWebbPageTest {
     @DisplayName("WebPage url is right")
     @Order(1)
     @Test
-    public void testPageUrlIsRight() throws IOException, InterruptedException {
+    public void testPageUrlIsRight() throws  InterruptedException {
 
         waitUntilVisibility(driver, hurMycketLana.cookiesButton);
         clickOnButton(driver, hurMycketLana.cookiesButton);
@@ -91,7 +97,7 @@ public class HurMycketFarJagLanaWebbPageTest {
     //---------------------------------------------------------------------------------------------
     @Nested
     @Order(1)
-    //@Disabled
+    @Disabled
     @DisplayName("Header elements")
     class headerElements {
 
@@ -99,7 +105,7 @@ public class HurMycketFarJagLanaWebbPageTest {
         //@Disabled
         @Order(1)
         @Test
-        public void logoAndHeaderElementsAreVisible() throws IOException {
+        public void logoAndHeaderElementsAreVisible()  {
 
             Assertions.assertTrue(isElementVisible(driver, hurMycketLana.logoICABanken));
             Assertions.assertTrue(isElementVisible(driver, hurMycketLana.searchHeaderButton));
@@ -110,7 +116,7 @@ public class HurMycketFarJagLanaWebbPageTest {
         //@Disabled
         @Order(2)
         @Test
-        public void headerElementsAreEnabled() throws IOException {
+        public void headerElementsAreEnabled()  {
 
             Assertions.assertTrue(isElementEnable(driver, hurMycketLana.searchHeaderButton));
             Assertions.assertTrue(isElementEnable(driver, hurMycketLana.logInButton));
@@ -120,7 +126,7 @@ public class HurMycketFarJagLanaWebbPageTest {
     //---------------------------------------------------------------------------------------------
     @Nested
     @Order(2)
-    //@Disabled
+    @Disabled
     @DisplayName("Top menu elements")
     class topMenuElements {
 
@@ -128,7 +134,7 @@ public class HurMycketFarJagLanaWebbPageTest {
        // @Disabled
         @Order(1)
         @Test
-        public void mainMenuElementsAreVisible() throws IOException {
+        public void mainMenuElementsAreVisible()  {
 
             Assertions.assertTrue(isElementVisible(driver, hurMycketLana.lanaTopMenu));
             Assertions.assertTrue(isElementVisible(driver, hurMycketLana.kortOchBetalaTopMenu));
@@ -139,10 +145,10 @@ public class HurMycketFarJagLanaWebbPageTest {
         }
 
         @DisplayName("Top menu elements are enable")
-       // @Disabled
+        @Disabled
         @Order(2)
         @Test
-        public void mainMenuElementsAreEnable() throws IOException {
+        public void mainMenuElementsAreEnable()  {
 
             Assertions.assertTrue(isElementEnable(driver, hurMycketLana.lanaTopMenu));
             Assertions.assertTrue(isElementEnable(driver, hurMycketLana.kortOchBetalaTopMenu));
@@ -156,7 +162,7 @@ public class HurMycketFarJagLanaWebbPageTest {
         //@Disabled
         @Order(3)
         @Test
-        public void hoverOverElements() throws IOException, InterruptedException {
+        public void hoverOverElements() throws  InterruptedException {
 
             //Creating object of an Actions class
             Actions action = new Actions(driver);
@@ -177,7 +183,7 @@ public class HurMycketFarJagLanaWebbPageTest {
         @Disabled
         @Order(1)
         @Test
-        public void basicHeadingElementsAreVisible() throws IOException {
+        public void basicHeadingElementsAreVisible()  {
             //test should be here
         }
     }
@@ -185,7 +191,7 @@ public class HurMycketFarJagLanaWebbPageTest {
     //---------------------------------------------------------------------------------------------
     @Nested
     @Order(4)
-    //@Disabled
+    @Disabled
     @DisplayName("BreadCrumb menu elements")
     class breadCrumbMenuElements {
 
@@ -193,7 +199,7 @@ public class HurMycketFarJagLanaWebbPageTest {
         //@Disabled
         @Order(1)
         @Test
-        public void breadCrumbMenuElementsAreVisible() throws IOException {
+        public void breadCrumbMenuElementsAreVisible()  {
 
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
@@ -207,7 +213,7 @@ public class HurMycketFarJagLanaWebbPageTest {
         //@Disabled
         @Order(2)
         @Test
-        public void betalningsAnmarkning() throws IOException {
+        public void betalningsAnmarkning()  {
 
             //test should be here
         }
@@ -220,20 +226,19 @@ public class HurMycketFarJagLanaWebbPageTest {
     class loanAmountIndicationElements {
 
         @DisplayName("Loan amount indication text elements are visible")
-        //@Disabled
+        @Disabled
         @Order(1)
         @Test
-        public void loanAmountIndicationElemetsAreVisible() throws IOException {
+        public void loanAmountIndicationElemetsAreVisible()  {
 
             //test should be here
         }
 
         @DisplayName("Månadsinkomst element is visible and has a default value")
-        //@Disabled
+        @Disabled
         @Order(2)
         @Test
-        public void manadsInkomstHasDefaultValue() throws IOException {
-
+        public void manadsInkomstHasDefaultValue()  {
            Assertions.assertTrue(isElementVisible(driver, hurMycketLana.manadsIncomstInput));
 
            elementAttribute = getAttributeOfElement(driver, "value", hurMycketLana.manadsIncomstInput);
@@ -243,10 +248,10 @@ public class HurMycketFarJagLanaWebbPageTest {
         }
 
         @DisplayName("Total skuld element is visible and has a default value")
-       // @Disabled
+        @Disabled
         @Order(3)
         @Test
-        public void antalBarnHasDefaultValue() throws IOException {
+        public void antalBarnHasDefaultValue()   {
 
             Assertions.assertTrue(isElementVisible(driver, hurMycketLana.totalSkuldInput));
             elementAttribute = getAttributeOfElement(driver, "value", hurMycketLana.totalSkuldInput);
@@ -255,10 +260,10 @@ public class HurMycketFarJagLanaWebbPageTest {
         }
 
         @DisplayName("Antal barn element is visible and has a default value")
-       // @Disabled
+        @Disabled
         @Order(4)
         @Test
-        public void totalSkuldHasDefaultValue() throws IOException {
+        public void totalSkuldHasDefaultValue()  {
 
             Assertions.assertTrue(isElementVisible(driver, hurMycketLana.antalBarnCounter));
             elementText = getTextFromElement(driver, hurMycketLana.antalBarnCounter);
@@ -267,10 +272,10 @@ public class HurMycketFarJagLanaWebbPageTest {
         }
 
         @DisplayName("Inspect Nej button")
-        //@Disabled
+        @Disabled
         @Order(5)
         @Test
-        public void nejButtonInspection() throws IOException {
+        public void nejButtonInspection()  {
 
             driver.manage().timeouts().implicitlyWait( 10, TimeUnit.SECONDS);
 
@@ -285,7 +290,7 @@ public class HurMycketFarJagLanaWebbPageTest {
         @Disabled
         @Order(6)
         @Test
-        public void nejButtonIsChecked() throws IOException, InterruptedException {
+        public void nejButtonIsChecked() throws InterruptedException {
 
             driver.manage().timeouts().implicitlyWait( 10, TimeUnit.SECONDS);
 
@@ -306,7 +311,44 @@ public class HurMycketFarJagLanaWebbPageTest {
 
             Assertions.assertTrue(!isElementEnable(driver, hurMycketLana.beraknaButton));
 
+            }
+
+        @DisplayName("Inspect drop down menu")
+        @Disabled
+        @Order(6)
+        @Test
+        public void dropDownMenuInspect() throws InterruptedException {
+
+            //Assertions.assertTrue(isElementVisible(driver, hurMycketLana.dropDownButton));
+            clickOnButton(driver, hurMycketLana.dropDownButton);
+
+            Assertions.assertTrue(isElementVisible(driver, hurMycketLana.bostadsrattDropDown));
+            Assertions.assertTrue(isElementVisible(driver, hurMycketLana.hyresrattDropDown));
+            Assertions.assertTrue(isElementVisible(driver, hurMycketLana.villaDropDown));
+            Assertions.assertTrue(isElementVisible(driver, hurMycketLana.annanDropDown));
+
+            Thread.sleep(3000);
         }
+
+        @DisplayName("Bostadkostnaden radio buttons are visible and enable")
+        //@Disabled
+        @Order(7)
+        @Test
+        public void bostadkostnadenRadioButtonsInspect() throws InterruptedException {
+
+            //Assertions.assertTrue(isElementVisible(driver, hurMycketLana.dropDownButton));
+
+            clickOnButton(driver, hurMycketLana.dropDownButton);
+            clickOnButton(driver, hurMycketLana.hyresrattDropDown);
+
+            for (WebElement element : hurMycketLana.bostadkostnadenRadioButtons)
+            {
+                Assertions.assertTrue(isElementVisible(driver, element));
+                Assertions.assertTrue(isElementEnable(driver, element));
+            }
+
+        }
+
     }
 
 }//end class

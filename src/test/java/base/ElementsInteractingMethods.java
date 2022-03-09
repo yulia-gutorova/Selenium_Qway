@@ -20,7 +20,10 @@ public class ElementsInteractingMethods extends SetUp {
      *---------------------------------------------------------------------*/
     public static void waitUntilVisibility(WebDriver driver, WebElement element)
     {
-        //driver = new ChromeDriver();
+
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element);
+
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.visibilityOf(element));
     }
