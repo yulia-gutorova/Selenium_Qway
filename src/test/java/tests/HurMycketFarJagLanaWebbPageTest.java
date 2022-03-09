@@ -26,7 +26,7 @@ public class HurMycketFarJagLanaWebbPageTest {
 
     public static WebDriver driver;
 
-    static String url, view ="", view1 = "", name = "Initial";
+    static String url, view ="";
     String elementText, elementAttribute;
 
 
@@ -40,10 +40,12 @@ public class HurMycketFarJagLanaWebbPageTest {
     public static void setUpp() throws IOException {
 
         System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\Java\\chromedriver.exe");
+
 //      mvn test -Dviewmode="webb"
 //      mvn test -Dviewmode="mobile"
 
         view = System.getProperty("viewmode");
+
         switch (view)
         {
             case "webb":
