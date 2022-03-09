@@ -39,12 +39,11 @@ public class HurMycketFarJagLanaWebbPageTest {
     @BeforeAll
     public static void setUpp() throws IOException {
 
-        name = getURLFromProperties("src\\test\\java\\project.properties", "pr");
-        System.out.println("POM property: " +name);
-
         System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\Java\\chromedriver.exe");
+//      mvn test -Dviewmode="webb"
+//      mvn test -Dviewmode="mobile"
 
-        view = "webb";
+        view = System.getProperty("viewmode");
         switch (view)
         {
             case "webb":
@@ -319,7 +318,6 @@ public class HurMycketFarJagLanaWebbPageTest {
         @Test
         public void dropDownMenuInspect() throws InterruptedException {
 
-            //Assertions.assertTrue(isElementVisible(driver, hurMycketLana.dropDownButton));
             clickOnButton(driver, hurMycketLana.dropDownButton);
 
             Assertions.assertTrue(isElementVisible(driver, hurMycketLana.bostadsrattDropDown));
@@ -331,12 +329,10 @@ public class HurMycketFarJagLanaWebbPageTest {
         }
 
         @DisplayName("Bostadkostnaden radio buttons are visible and enable")
-        //@Disabled
+        @Disabled
         @Order(7)
         @Test
         public void bostadkostnadenRadioButtonsInspect() throws InterruptedException {
-
-            //Assertions.assertTrue(isElementVisible(driver, hurMycketLana.dropDownButton));
 
             clickOnButton(driver, hurMycketLana.dropDownButton);
             clickOnButton(driver, hurMycketLana.hyresrattDropDown);
@@ -346,7 +342,17 @@ public class HurMycketFarJagLanaWebbPageTest {
                 Assertions.assertTrue(isElementVisible(driver, element));
                 Assertions.assertTrue(isElementEnable(driver, element));
             }
+            Thread.sleep(3000);
 
+            driver.navigate().refresh();
+        }
+
+        @DisplayName("Click on Beräkna button and verify url")
+        //@Disabled
+        @Order(8)
+        @Test
+        public void clickOnBeraknaButtonAndVerifyURL() throws InterruptedException {
+            //test should be here
         }
 
     }
