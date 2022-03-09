@@ -1,0 +1,12 @@
+tests\OpenMobPageTest.class
+SimpleTest.class
+basic\SetUp.class
+tests\HurMycketFarJagLanaWebbPageTest$breadCrumbMenuElements.class
+elementsLocators\HurMycketFarJagLanaWebbPage.class
+tests\HurMycketFarJagLanaWebbPageTest$headerElements.class
+tests\HurMycketFarJagLanaWebbPageTest$loanAmountIndicationElements.class
+base\ElementsInteractingMethods.class
+tests\HurMycketFarJagLanaWebbPageTest$basicHeadingElements.class
+tests\HurMycketFarJagLanaWebbPageTest$topMenuElements.class
+tests\HurMycketFarJagLanaWebbPageTest.class
+base\allTestsMethods.class

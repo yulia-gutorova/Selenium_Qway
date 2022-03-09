@@ -243,9 +243,7 @@ public class HurMycketFarJagLanaWebbPageTest {
            Assertions.assertTrue(isElementVisible(driver, hurMycketLana.manadsIncomstInput));
 
            elementAttribute = getAttributeOfElement(driver, "value", hurMycketLana.manadsIncomstInput);
-           //System.out.println("Manadsinkomst: " + elementAttribute);
            Assertions.assertTrue(elementAttribute.contains("0 kr/")); //Test data should be separated
-
         }
 
         @DisplayName("Total skuld element is visible and has a default value")
