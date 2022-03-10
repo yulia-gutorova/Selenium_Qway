@@ -1,6 +1,4 @@
-tests\OpenMobPageTest.class
 SimpleTest.class
-basic\SetUp.class
 tests\HurMycketFarJagLanaWebbPageTest$breadCrumbMenuElements.class
 elementsLocators\HurMycketFarJagLanaWebbPage.class
 tests\HurMycketFarJagLanaWebbPageTest$headerElements.class
