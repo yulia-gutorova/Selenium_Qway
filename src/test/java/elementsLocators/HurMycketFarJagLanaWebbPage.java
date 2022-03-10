@@ -83,6 +83,10 @@ public class HurMycketFarJagLanaWebbPage {
     @FindBy(xpath = "//span[text()= 'Boendekostnad']")
     public WebElement boendekostnadText;
 
+    @FindBy(xpath = "//span[@class = 'loan-amount-indication_approximationAmountLabel__3wc9Q input-title_title__3fPFC']")
+    public WebElement loanAmountText;
+
+
 
 
     @FindBy(xpath = "//span[@class='counter_item__1Pd4V']")
@@ -98,7 +102,7 @@ public class HurMycketFarJagLanaWebbPage {
     @FindBy(xpath = "//div[@class = 'combo-button_buttonContent__pIl-t']")
     public List<WebElement> comboButtons;
 
-    @FindBy(xpath = "//button[text() = 'Beräkna']")
+    @FindBy(xpath = "//button[contains(text(), 'Ber')]")
     public WebElement beraknaButton;
 
     @FindBy(xpath = "//button[@class = 'counter_btnDec__1Q_Yr']")
@@ -112,6 +116,10 @@ public class HurMycketFarJagLanaWebbPage {
 
     @FindBy(xpath = "//span[text() = 'Hur ser ditt boende ut?']")
     public WebElement dropDownButton;
+
+    @FindBy(xpath = "//a[contains(text(), 'vidare till')]")
+    public WebElement gaVidareTillAnsokanButton;
+
 
 
     @FindBy(xpath = "//input[@name='monthlyIncome']")

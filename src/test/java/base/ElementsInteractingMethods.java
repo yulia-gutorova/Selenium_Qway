@@ -91,5 +91,15 @@ public class ElementsInteractingMethods  {
         return attributeValue;
     }
 
+    /*---------------------------------------------------------------------
+     * Method sendKeys() to send text to element
+     *---------------------------------------------------------------------*/
+    public static void sendText(WebDriver driver, WebElement element, String text)
+    {
+            Actions actions = new Actions(driver);
+            actions.moveToElement(element);
+            element.sendKeys(text);
+    }
+
 
 }//end class

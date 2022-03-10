@@ -7,18 +7,16 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Properties;
+
 import java.util.concurrent.TimeUnit;
 
-import static base.allTestsMethods.getURLFromProperties;
+import static base.allTestsMethods.*;
 import static base.ElementsInteractingMethods.*;
-import static elementsLocators.HurMycketFarJagLanaWebbPage.*;
+
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 
@@ -352,7 +350,20 @@ public class HurMycketFarJagLanaWebbPageTest {
         @Order(8)
         @Test
         public void clickOnBeraknaButtonAndVerifyURL() throws InterruptedException {
-            //test should be here
+
+            sendText(driver, hurMycketLana.manadsIncomstInput, "500000");
+            clickOnButton(driver, hurMycketLana.dropDownButton);
+            clickOnButton(driver, hurMycketLana.annanDropDown);
+            clickOnButton(driver, hurMycketLana.bostadkostnadenRadioButtons.get(1));
+            clickOnButton(driver, hurMycketLana.beraknaButton);
+
+
+            isElementVisible(driver, hurMycketLana.loanAmountText);
+
+            System.out.println("Loan amount: " + getTextFromElement(driver, hurMycketLana.loanAmountText));
+
+            System.out.println("Extract digits: " + extractDigits(getTextFromElement(driver, hurMycketLana.loanAmountText)));
+
         }
 
 

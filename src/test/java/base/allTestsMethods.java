@@ -17,6 +17,23 @@ public class allTestsMethods {
         return url;
     }
 
+    /*---------------------------------------------------------------------
+     * Method to extract digits from string
+     *---------------------------------------------------------------------*/
+
+    public static String extractDigits(String str) {
+
+        StringBuilder sb = new StringBuilder(str.length());
+
+        int strLength= str.length();
+        for(int i = 0; i < str.length(); i++){
+            char c = str.charAt(i);
+            if(c > 47 && c < 58){
+                sb.append(c);;
+            }
+        }
+        return sb.toString();
+    }
 
 
 
