@@ -324,6 +324,7 @@ public class HurMycketFarJagLanaWebbPageTest {
             Assertions.assertTrue(isElementVisible(driver, hurMycketLana.annanDropDown));
 
             Thread.sleep(3000);
+            driver.navigate().refresh();
         }
 
         @DisplayName("Bostadkostnaden radio buttons are visible and enable")
@@ -345,13 +346,35 @@ public class HurMycketFarJagLanaWebbPageTest {
             driver.navigate().refresh();
         }
 
-        @DisplayName("Click on Beräkna button and verify url")
+
+        @DisplayName("Drop down menu error message")
         //@Disabled
         @Order(8)
         @Test
+        public void dropDownMenuErrorMessage() throws InterruptedException {
+
+            driver.navigate().refresh();
+
+            isElementVisible(driver, hurMycketLana.dropDownButton);
+            clickOnButton(driver, hurMycketLana.dropDownButton);
+
+            isElementVisible(driver, hurMycketLana.comboButtons.get(3));
+            clickOnButton(driver, hurMycketLana.comboButtons.get(3));
+
+            Assertions.assertTrue(isElementVisible(driver, hurMycketLana.hurSerDittBoendeUtErrorMessage));
+            Thread.sleep(3000);
+
+        }
+
+        @DisplayName("Calculate loan and verify url according to loan")
+        @Disabled
+        @Order(9)
+        @Test
         public void clickOnBeraknaButtonAndVerifyURL() throws InterruptedException {
 
-            sendText(driver, hurMycketLana.manadsIncomstInput, "500000");
+            driver.navigate().refresh();
+
+            sendText(driver, hurMycketLana.manadsIncomstInput, "300000");
             clickOnButton(driver, hurMycketLana.dropDownButton);
             clickOnButton(driver, hurMycketLana.annanDropDown);
             clickOnButton(driver, hurMycketLana.bostadkostnadenRadioButtons.get(1));
@@ -359,11 +382,16 @@ public class HurMycketFarJagLanaWebbPageTest {
 
 
             isElementVisible(driver, hurMycketLana.loanAmountText);
+            int loanAmount = Integer.parseInt(extractDigits(getTextFromElement(driver, hurMycketLana.loanAmountText)));
 
-            System.out.println("Loan amount: " + getTextFromElement(driver, hurMycketLana.loanAmountText));
+            clickOnButton(driver, hurMycketLana.gaVidareTillAnsokanButton);
+            String currentURL = driver.getCurrentUrl();
+            String[] tokens = currentURL.split("=");
+            int loanAmountURL = Integer.parseInt(tokens[tokens.length-1]);
 
-            System.out.println("Extract digits: " + extractDigits(getTextFromElement(driver, hurMycketLana.loanAmountText)));
+            Assertions.assertEquals(currentURL, loanAmountURL);
 
+            driver.navigate().back();
         }
 
 

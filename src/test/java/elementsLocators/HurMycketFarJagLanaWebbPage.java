@@ -95,8 +95,14 @@ public class HurMycketFarJagLanaWebbPage {
     @FindBy(xpath = "//span[text() = 'Hur ser ditt boende ut?']")
     public List<WebElement> hurSerDittBoendeUtText;
 
+
+
     @FindBy(xpath = "//div[@class = 'error-pane_errorMessage__3BEc2 ']")
     public WebElement jaButtonErrorMessage;
+
+    @FindBy(xpath = "//div[text() = 'Hur ser ditt boende ut?']")
+    public WebElement hurSerDittBoendeUtErrorMessage;
+
 
 
     @FindBy(xpath = "//div[@class = 'combo-button_buttonContent__pIl-t']")
