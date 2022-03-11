@@ -1,10 +1,4 @@
-SimpleTest.class
-tests\HurMycketFarJagLanaWebbPageTest$breadCrumbMenuElements.class
 elementsLocators\HurMycketFarJagLanaWebbPage.class
-tests\HurMycketFarJagLanaWebbPageTest$headerElements.class
-tests\HurMycketFarJagLanaWebbPageTest$loanAmountIndicationElements.class
+base\AllTestsMethods.class
 base\ElementsInteractingMethods.class
-tests\HurMycketFarJagLanaWebbPageTest$basicHeadingElements.class
-tests\HurMycketFarJagLanaWebbPageTest$topMenuElements.class
 tests\HurMycketFarJagLanaWebbPageTest.class
-base\allTestsMethods.class

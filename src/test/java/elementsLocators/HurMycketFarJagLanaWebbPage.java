@@ -105,7 +105,7 @@ public class HurMycketFarJagLanaWebbPage {
 
 
 
-    @FindBy(xpath = "//div[@class = 'combo-button_buttonContent__pIl-t']")
+    @FindBy(xpath = "//span[@class = 'combo-button_buttonContent__pIl-t']")
     public List<WebElement> comboButtons;
 
     @FindBy(xpath = "//button[contains(text(), 'Ber')]")
@@ -121,10 +121,22 @@ public class HurMycketFarJagLanaWebbPage {
     public List<WebElement> checkFormButtons;
 
     @FindBy(xpath = "//span[text() = 'Hur ser ditt boende ut?']")
+    //header_headerContent__3yBtsI
     public WebElement dropDownButton;
+
+    @FindBy(xpath = "header_headerContent__3yBts")
+    //header_headerContent__3yBtsI
+    public WebElement dropDownButton1;
+
 
     @FindBy(xpath = "//a[contains(text(), 'vidare till')]")
     public WebElement gaVidareTillAnsokanButton;
+
+    @FindBy(xpath = "//button[@class = 'counter_btnInc__2QJe0']")
+    public WebElement plusButton;
+
+    @FindBy(xpath = "//span[text() = 'Nej']")
+    public WebElement nejButton;
 
 
 

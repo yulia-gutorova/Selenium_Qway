@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="tests.HurMycketFarJagLanaWebbPageTest" time="11.92" tests="15" errors="0" skipped="13" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="tests.HurMycketFarJagLanaWebbPageTest" time="27.441" tests="18" errors="0" skipped="3" failures="0">
   <properties>
     <property name="sun.desktop" value="windows"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -20,7 +20,7 @@
     <property name="user.country" value="GB"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_241\jre\bin"/>
-    <property name="sun.java.command" value="C:\Users\Yulia\AppData\Local\Temp\surefire455636730701273921\surefirebooter3698799564809146905.jar C:\Users\Yulia\AppData\Local\Temp\surefire455636730701273921 2022-03-10T14-34-19_275-jvmRun1 surefire3112995078890047725tmp surefire_04931345765278802953tmp"/>
+    <property name="sun.java.command" value="C:\Users\Yulia\AppData\Local\Temp\surefire5591130527556814973\surefirebooter5842281753229512552.jar C:\Users\Yulia\AppData\Local\Temp\surefire5591130527556814973 2022-03-11T20-01-30_011-jvmRun1 surefire3130357106782546505tmp surefire_08018877756479051758tmp"/>
     <property name="surefire.test.class.path" value="C:\Selenium_Qway\target\test-classes;C:\Selenium_Qway\target\classes;C:\Users\Yulia\.m2\repository\org\junit\jupiter\junit-jupiter\5.8.2\junit-jupiter-5.8.2.jar;C:\Users\Yulia\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.8.2\junit-jupiter-api-5.8.2.jar;C:\Users\Yulia\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\Yulia\.m2\repository\org\junit\platform\junit-platform-commons\1.8.2\junit-platform-commons-1.8.2.jar;C:\Users\Yulia\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.8.2\junit-jupiter-engine-5.8.2.jar;C:\Users\Yulia\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.7.0\junit-jupiter-params-5.7.0.jar;C:\Users\Yulia\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\Yulia\.m2\repository\org\junit\vintage\junit-vintage-engine\5.8.0-M1\junit-vintage-engine-5.8.0-M1.jar;C:\Users\Yulia\.m2\repository\org\junit\platform\junit-platform-engine\1.8.0-M1\junit-platform-engine-1.8.0-M1.jar;C:\Users\Yulia\.m2\repository\junit\junit\4.13.1\junit-4.13.1.jar;C:\Users\Yulia\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\Yulia\.m2\repository\org\seleniumhq\selenium\selenium-java\3.141.59\selenium-java-3.141.59.jar;C:\Users\Yulia\.m2\repository\org\seleniumhq\selenium\selenium-api\3.141.59\selenium-api-3.141.59.jar;C:\Users\Yulia\.m2\repository\org\seleniumhq\selenium\selenium-chrome-driver\3.141.59\selenium-chrome-driver-3.141.59.jar;C:\Users\Yulia\.m2\repository\org\seleniumhq\selenium\selenium-edge-driver\3.141.59\selenium-edge-driver-3.141.59.jar;C:\Users\Yulia\.m2\repository\org\seleniumhq\selenium\selenium-firefox-driver\3.141.59\selenium-firefox-driver-3.141.59.jar;C:\Users\Yulia\.m2\repository\org\seleniumhq\selenium\selenium-ie-driver\3.141.59\selenium-ie-driver-3.141.59.jar;C:\Users\Yulia\.m2\repository\org\seleniumhq\selenium\selenium-opera-driver\3.141.59\selenium-opera-driver-3.141.59.jar;C:\Users\Yulia\.m2\repository\org\seleniumhq\selenium\selenium-remote-driver\3.141.59\selenium-remote-driver-3.141.59.jar;C:\Users\Yulia\.m2\repository\org\seleniumhq\selenium\selenium-safari-driver\3.141.59\selenium-safari-driver-3.141.59.jar;C:\Users\Yulia\.m2\repository\org\seleniumhq\selenium\selenium-support\3.141.59\selenium-support-3.141.59.jar;C:\Users\Yulia\.m2\repository\net\bytebuddy\byte-buddy\1.8.15\byte-buddy-1.8.15.jar;C:\Users\Yulia\.m2\repository\org\apache\commons\commons-exec\1.3\commons-exec-1.3.jar;C:\Users\Yulia\.m2\repository\com\google\guava\guava\25.0-jre\guava-25.0-jre.jar;C:\Users\Yulia\.m2\repository\com\google\code\findbugs\jsr305\1.3.9\jsr305-1.3.9.jar;C:\Users\Yulia\.m2\repository\org\checkerframework\checker-compat-qual\2.0.0\checker-compat-qual-2.0.0.jar;C:\Users\Yulia\.m2\repository\com\google\errorprone\error_prone_annotations\2.1.3\error_prone_annotations-2.1.3.jar;C:\Users\Yulia\.m2\repository\com\google\j2objc\j2objc-annotations\1.1\j2objc-annotations-1.1.jar;C:\Users\Yulia\.m2\repository\org\codehaus\mojo\animal-sniffer-annotations\1.14\animal-sniffer-annotations-1.14.jar;C:\Users\Yulia\.m2\repository\com\squareup\okhttp3\okhttp\3.11.0\okhttp-3.11.0.jar;C:\Users\Yulia\.m2\repository\com\squareup\okio\okio\1.14.0\okio-1.14.0.jar;C:\Users\Yulia\.m2\repository\org\slf4j\slf4j-nop\1.7.13\slf4j-nop-1.7.13.jar;C:\Users\Yulia\.m2\repository\org\slf4j\slf4j-api\1.7.13\slf4j-api-1.7.13.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\Yulia"/>
@@ -33,7 +33,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="C:\Users\Yulia\AppData\Local\Temp\surefire455636730701273921\surefirebooter3698799564809146905.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\Yulia\AppData\Local\Temp\surefire5591130527556814973\surefirebooter5842281753229512552.jar"/>
     <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_241\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_241\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_241\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_241\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_241\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_241\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_241\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_241\jre\classes"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
@@ -62,45 +62,28 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="52.0"/>
   </properties>
-  <testcase name="testPageUrlIsRight" classname="tests.HurMycketFarJagLanaWebbPageTest" time="2.247"/>
-  <testcase name="nejButtonIsChecked" classname="tests.HurMycketFarJagLanaWebbPageTest$loanAmountIndicationElements" time="0">
-    <skipped message="public void tests.HurMycketFarJagLanaWebbPageTest$loanAmountIndicationElements.nejButtonIsChecked() throws java.lang.InterruptedException is @Disabled"/>
+  <testcase name="pageUrlIsRight" classname="tests.HurMycketFarJagLanaWebbPageTest" time="2.274"/>
+  <testcase name="logoAndHeaderElementsAreVisible" classname="tests.HurMycketFarJagLanaWebbPageTest" time="0.275"/>
+  <testcase name="headerElementsAreEnabled" classname="tests.HurMycketFarJagLanaWebbPageTest" time="0.062"/>
+  <testcase name="mainMenuElementsAreVisible" classname="tests.HurMycketFarJagLanaWebbPageTest" time="0.5"/>
+  <testcase name="mainMenuElementsAreEnable" classname="tests.HurMycketFarJagLanaWebbPageTest" time="0.188"/>
+  <testcase name="hoverOverElements" classname="tests.HurMycketFarJagLanaWebbPageTest" time="0.173"/>
+  <testcase name="basicHeadingElementsAreVisible" classname="tests.HurMycketFarJagLanaWebbPageTest" time="0.001"/>
+  <testcase name="breadCrumbMenuElementsAreVisible" classname="tests.HurMycketFarJagLanaWebbPageTest" time="0.349"/>
+  <testcase name="betalningsAnmarkning" classname="tests.HurMycketFarJagLanaWebbPageTest" time="0">
+    <skipped message="public void tests.HurMycketFarJagLanaWebbPageTest.betalningsAnmarkning() is @Disabled"/>
   </testcase>
-  <testcase name="manadsInkomstHasDefaultValue" classname="tests.HurMycketFarJagLanaWebbPageTest$loanAmountIndicationElements" time="0">
-    <skipped message="public void tests.HurMycketFarJagLanaWebbPageTest$loanAmountIndicationElements.manadsInkomstHasDefaultValue() is @Disabled"/>
+  <testcase name="loanAmountIndicationElemetsAreVisible" classname="tests.HurMycketFarJagLanaWebbPageTest" time="0">
+    <skipped message="public void tests.HurMycketFarJagLanaWebbPageTest.loanAmountIndicationElemetsAreVisible() is @Disabled"/>
   </testcase>
-  <testcase name="dropDownMenuInspect" classname="tests.HurMycketFarJagLanaWebbPageTest$loanAmountIndicationElements" time="0">
-    <skipped message="public void tests.HurMycketFarJagLanaWebbPageTest$loanAmountIndicationElements.dropDownMenuInspect() throws java.lang.InterruptedException is @Disabled"/>
+  <testcase name="manadsInkomstHasDefaultValue" classname="tests.HurMycketFarJagLanaWebbPageTest" time="0.11"/>
+  <testcase name="antalBarnHasDefaultValue" classname="tests.HurMycketFarJagLanaWebbPageTest" time="0.109"/>
+  <testcase name="totalSkuldHasDefaultValue" classname="tests.HurMycketFarJagLanaWebbPageTest" time="0.109"/>
+  <testcase name="nejButtonIsChecked" classname="tests.HurMycketFarJagLanaWebbPageTest" time="0">
+    <skipped message="public void tests.HurMycketFarJagLanaWebbPageTest.nejButtonIsChecked() throws java.lang.InterruptedException is @Disabled"/>
   </testcase>
-  <testcase name="dropDownMenuErrorMessage" classname="tests.HurMycketFarJagLanaWebbPageTest$loanAmountIndicationElements" time="4.495"/>
-  <testcase name="loanAmountIndicationElemetsAreVisible" classname="tests.HurMycketFarJagLanaWebbPageTest$loanAmountIndicationElements" time="0">
-    <skipped message="public void tests.HurMycketFarJagLanaWebbPageTest$loanAmountIndicationElements.loanAmountIndicationElemetsAreVisible() is @Disabled"/>
-  </testcase>
-  <testcase name="totalSkuldHasDefaultValue" classname="tests.HurMycketFarJagLanaWebbPageTest$loanAmountIndicationElements" time="0">
-    <skipped message="public void tests.HurMycketFarJagLanaWebbPageTest$loanAmountIndicationElements.totalSkuldHasDefaultValue() is @Disabled"/>
-  </testcase>
-  <testcase name="antalBarnHasDefaultValue" classname="tests.HurMycketFarJagLanaWebbPageTest$loanAmountIndicationElements" time="0">
-    <skipped message="public void tests.HurMycketFarJagLanaWebbPageTest$loanAmountIndicationElements.antalBarnHasDefaultValue() is @Disabled"/>
-  </testcase>
-  <testcase name="nejButtonInspection" classname="tests.HurMycketFarJagLanaWebbPageTest$loanAmountIndicationElements" time="0">
-    <skipped message="public void tests.HurMycketFarJagLanaWebbPageTest$loanAmountIndicationElements.nejButtonInspection() is @Disabled"/>
-  </testcase>
-  <testcase name="bostadkostnadenRadioButtonsInspect" classname="tests.HurMycketFarJagLanaWebbPageTest$loanAmountIndicationElements" time="0">
-    <skipped message="public void tests.HurMycketFarJagLanaWebbPageTest$loanAmountIndicationElements.bostadkostnadenRadioButtonsInspect() throws java.lang.InterruptedException is @Disabled"/>
-  </testcase>
-  <testcase name="clickOnBeraknaButtonAndVerifyURL" classname="tests.HurMycketFarJagLanaWebbPageTest$loanAmountIndicationElements" time="0">
-    <skipped message="public void tests.HurMycketFarJagLanaWebbPageTest$loanAmountIndicationElements.clickOnBeraknaButtonAndVerifyURL() throws java.lang.InterruptedException is @Disabled"/>
-  </testcase>
-  <testcase name="tests.HurMycketFarJagLanaWebbPageTest$breadCrumbMenuElements" classname="tests.HurMycketFarJagLanaWebbPageTest$breadCrumbMenuElements" time="0">
-    <skipped message="class tests.HurMycketFarJagLanaWebbPageTest$breadCrumbMenuElements is @Disabled"/>
-  </testcase>
-  <testcase name="basicHeadingElementsAreVisible" classname="tests.HurMycketFarJagLanaWebbPageTest$basicHeadingElements" time="0">
-    <skipped message="public void tests.HurMycketFarJagLanaWebbPageTest$basicHeadingElements.basicHeadingElementsAreVisible() is @Disabled"/>
-  </testcase>
-  <testcase name="tests.HurMycketFarJagLanaWebbPageTest$topMenuElements" classname="tests.HurMycketFarJagLanaWebbPageTest$topMenuElements" time="0">
-    <skipped message="class tests.HurMycketFarJagLanaWebbPageTest$topMenuElements is @Disabled"/>
-  </testcase>
-  <testcase name="tests.HurMycketFarJagLanaWebbPageTest$headerElements" classname="tests.HurMycketFarJagLanaWebbPageTest$headerElements" time="0">
-    <skipped message="class tests.HurMycketFarJagLanaWebbPageTest$headerElements is @Disabled"/>
-  </testcase>
+  <testcase name="nejButtonInspection" classname="tests.HurMycketFarJagLanaWebbPageTest" time="0.141"/>
+  <testcase name="dropDownMenuInspect" classname="tests.HurMycketFarJagLanaWebbPageTest" time="5.9"/>
+  <testcase name="dropDownMenuErrorMessage" classname="tests.HurMycketFarJagLanaWebbPageTest" time="4.346"/>
+  <testcase name="clickOnBeraknaButtonAndVerifyURL" classname="tests.HurMycketFarJagLanaWebbPageTest" time="7.953"/>
 </testsuite>
