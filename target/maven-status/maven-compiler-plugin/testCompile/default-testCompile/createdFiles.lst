@@ -1,5 +1,8 @@
 base\AllTestsMethods.class
 listener\Listener.class
+tests\LaneKalkylatorTest.class
 elementsLocators\HurMycketFarJagLanaWebbPage.class
 base\ElementsInteractingMethods.class
+tests\TestSuite.class
 tests\HurMycketFarJagLanaWebbPageTest.class
+elementsLocators\LaneKalkylatorWebbPage.class

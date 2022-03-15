@@ -44,7 +44,7 @@ public class LaneKalkylatorTest {
 
         view = System.getProperty("viewmode");
 
-        //view = "webb";
+       // view = "webb";
         switch (view)
         {
             case "webb":

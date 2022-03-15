@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
-Test set: tests.OpenMobPageTest
+Test set: tests.TestSuite
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.472 s - in tests.OpenMobPageTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.209 sec

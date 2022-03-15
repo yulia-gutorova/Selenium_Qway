@@ -43,9 +43,9 @@ public class HurMycketFarJagLanaWebbPageTest {
 //      mvn test -Dviewmode="webb"
 //      mvn test -Dviewmode="mobile"
 
-        view = System.getProperty("viewmode");
+        //view = System.getProperty("viewmode");
 
-        //view = "webb";
+        view = "mobile";
         switch (view)
         {
             case "webb":
@@ -359,6 +359,7 @@ public class HurMycketFarJagLanaWebbPageTest {
             Thread.sleep(1000);
             clickOnButton(driver, hurMycketLana.bostadkostnadenRadioButtons.get(1));
             Thread.sleep(1000);
+            isElementVisible(driver, hurMycketLana.beraknaButton);
             clickOnButton(driver, hurMycketLana.beraknaButton);
 
             isElementVisible(driver, hurMycketLana.loanAmountText);

@@ -32,6 +32,10 @@ public class HurMycketFarJagLanaWebbPage {
     @FindBy(xpath = "//button[text()='Logga in']")
     public WebElement logInButton;
 
+    @FindBy(xpath = "//a[@class = 'header_action__2xCD3 header_actionHamburger__2PXSx header_borderLeft__22RVi']")
+    public WebElement gamburgerMenuButton;
+
+
 
     // ------------- Top menu  --------------------------
 
@@ -162,6 +166,7 @@ public class HurMycketFarJagLanaWebbPage {
 
     @FindBy(xpath = "//div[@class = 'radio-buttons-option_text__2maXO']")
     public List<WebElement> bostadkostnadenRadioButtons;
+
 
 
 
