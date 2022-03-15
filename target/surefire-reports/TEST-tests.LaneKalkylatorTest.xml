@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="tests.HurMycketFarJagLanaWebbPageTest" time="25.01" tests="18" errors="0" skipped="3" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="tests.LaneKalkylatorTest" time="8.125" tests="2" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="windows"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -62,28 +62,6 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="52.0"/>
   </properties>
-  <testcase name="pageUrlIsRight" classname="tests.HurMycketFarJagLanaWebbPageTest" time="2.468"/>
-  <testcase name="logoAndHeaderElementsAreVisible" classname="tests.HurMycketFarJagLanaWebbPageTest" time="0.213"/>
-  <testcase name="headerElementsAreEnabled" classname="tests.HurMycketFarJagLanaWebbPageTest" time="0.047"/>
-  <testcase name="mainMenuElementsAreVisible" classname="tests.HurMycketFarJagLanaWebbPageTest" time="0.391"/>
-  <testcase name="mainMenuElementsAreEnable" classname="tests.HurMycketFarJagLanaWebbPageTest" time="0.109"/>
-  <testcase name="hoverOverElements" classname="tests.HurMycketFarJagLanaWebbPageTest" time="0.169"/>
-  <testcase name="basicHeadingElementsAreVisible" classname="tests.HurMycketFarJagLanaWebbPageTest" time="0"/>
-  <testcase name="breadCrumbMenuElementsAreVisible" classname="tests.HurMycketFarJagLanaWebbPageTest" time="0.23"/>
-  <testcase name="betalningsAnmarkning" classname="tests.HurMycketFarJagLanaWebbPageTest" time="0">
-    <skipped message="public void tests.HurMycketFarJagLanaWebbPageTest.betalningsAnmarkning() is @Disabled"/>
-  </testcase>
-  <testcase name="loanAmountIndicationElemetsAreVisible" classname="tests.HurMycketFarJagLanaWebbPageTest" time="0">
-    <skipped message="public void tests.HurMycketFarJagLanaWebbPageTest.loanAmountIndicationElemetsAreVisible() is @Disabled"/>
-  </testcase>
-  <testcase name="manadsInkomstHasDefaultValue" classname="tests.HurMycketFarJagLanaWebbPageTest" time="0.094"/>
-  <testcase name="antalBarnHasDefaultValue" classname="tests.HurMycketFarJagLanaWebbPageTest" time="0.094"/>
-  <testcase name="totalSkuldHasDefaultValue" classname="tests.HurMycketFarJagLanaWebbPageTest" time="0.093"/>
-  <testcase name="nejButtonIsChecked" classname="tests.HurMycketFarJagLanaWebbPageTest" time="0">
-    <skipped message="public void tests.HurMycketFarJagLanaWebbPageTest.nejButtonIsChecked() throws java.lang.InterruptedException is @Disabled"/>
-  </testcase>
-  <testcase name="nejButtonInspection" classname="tests.HurMycketFarJagLanaWebbPageTest" time="0.125"/>
-  <testcase name="dropDownMenuInspect" classname="tests.HurMycketFarJagLanaWebbPageTest" time="5.278"/>
-  <testcase name="dropDownMenuErrorMessage" classname="tests.HurMycketFarJagLanaWebbPageTest" time="4.015"/>
-  <testcase name="clickOnBeraknaButtonAndVerifyURL" classname="tests.HurMycketFarJagLanaWebbPageTest" time="7.892"/>
+  <testcase name="testPageUrlIsRight" classname="tests.LaneKalkylatorTest" time="0.393"/>
+  <testcase name="testgoslider" classname="tests.LaneKalkylatorTest" time="5.497"/>
 </testsuite>
