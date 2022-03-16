@@ -40,6 +40,15 @@ public class ElementsInteractingMethods  {
     }
 
     /*---------------------------------------------------------------------
+     * Method isElementVisible() to verify that element is not displayed
+     *---------------------------------------------------------------------*/
+    public static boolean isElementInvisible(WebDriver driver, WebElement element)
+    {
+        return !element.isDisplayed();
+    }
+
+
+    /*---------------------------------------------------------------------
      * Method isElementEnable() to verify that element is enabled
      *---------------------------------------------------------------------*/
     public static boolean isElementEnable(WebDriver driver, WebElement element)

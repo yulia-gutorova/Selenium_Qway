@@ -42,9 +42,9 @@ public class LaneKalkylatorTest {
 //      mvn test -Dviewmode="webb"
 //      mvn test -Dviewmode="mobile"
 
-        view = System.getProperty("viewmode");
+        //view = System.getProperty("viewmode");
 
-       // view = "webb";
+        view = "webb";
         switch (view)
         {
             case "webb":

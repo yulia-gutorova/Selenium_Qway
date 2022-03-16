@@ -2,6 +2,7 @@ package tests;
 
 import elementsLocators.HurMycketFarJagLanaWebbPage;
 import org.junit.jupiter.api.*;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -28,7 +29,6 @@ public class HurMycketFarJagLanaWebbPageTest {
     static String url, view ="";
     String elementText, elementAttribute;
 
-
     HurMycketFarJagLanaWebbPage hurMycketLana = new HurMycketFarJagLanaWebbPage(driver);
     //ElementsInteractingMethods interactingMethods = new ElementsInteractingMethods();
 
@@ -45,7 +45,8 @@ public class HurMycketFarJagLanaWebbPageTest {
 
         //view = System.getProperty("viewmode");
 
-        view = "mobile";
+        view = "webb";
+
         switch (view)
         {
             case "webb":
@@ -78,7 +79,6 @@ public class HurMycketFarJagLanaWebbPageTest {
 
         //driver.quit();
     }
-
     //---------------------------- Tests ----------------------------------
 
     @DisplayName("1. WebPage url is right")
@@ -104,8 +104,16 @@ public class HurMycketFarJagLanaWebbPageTest {
         public void logoAndHeaderElementsAreVisible()  {
 
             Assertions.assertTrue(isElementVisible(driver, hurMycketLana.logoICABanken));
-            Assertions.assertTrue(isElementVisible(driver, hurMycketLana.searchHeaderButton));
             Assertions.assertTrue(isElementVisible(driver, hurMycketLana.logInButton));
+
+            if (view.equals("webb"))
+            {
+                Assertions.assertTrue(isElementVisible(driver, hurMycketLana.searchHeaderButton));
+            }
+            else
+            {
+                Assertions.assertTrue(isElementVisible(driver, hurMycketLana.gamburgerMenuButton));
+            }
         }
 
         @DisplayName("3. Header elements are enable")
@@ -118,22 +126,31 @@ public class HurMycketFarJagLanaWebbPageTest {
             Assertions.assertTrue(isElementEnable(driver, hurMycketLana.logInButton));
         }
 
-
     //---------------------------------------------------------------------------------------------
-
-
         @DisplayName("4. Top menu elements are visible")
-       //@Disabled
+        //@DisabledIf
         @Order(4)
         @Test
-        public void mainMenuElementsAreVisible()  {
+        public void topMenuElementsAreVisible()  {
 
+        if (view == "webb")
+        {
             Assertions.assertTrue(isElementVisible(driver, hurMycketLana.lanaTopMenu));
             Assertions.assertTrue(isElementVisible(driver, hurMycketLana.kortOchBetalaTopMenu));
             Assertions.assertTrue(isElementVisible(driver, hurMycketLana.sparaTopMenu));
             Assertions.assertTrue(isElementVisible(driver, hurMycketLana.forsakraTopMenu));
             Assertions.assertTrue(isElementVisible(driver, hurMycketLana.varaTipsTopMenu));
             Assertions.assertTrue(isElementVisible(driver, hurMycketLana.bliBankkundTopMenu));
+        }
+        if (view == "mobile")
+        {
+            Assertions.assertTrue(isElementInvisible(driver, hurMycketLana.lanaTopMenu));
+            Assertions.assertTrue(isElementInvisible(driver, hurMycketLana.kortOchBetalaTopMenu));
+            Assertions.assertTrue(isElementInvisible(driver, hurMycketLana.sparaTopMenu));
+            Assertions.assertTrue(isElementInvisible(driver, hurMycketLana.forsakraTopMenu));
+            Assertions.assertTrue(isElementInvisible(driver, hurMycketLana.varaTipsTopMenu));
+            Assertions.assertTrue(isElementInvisible(driver, hurMycketLana.bliBankkundTopMenu));
+        }
         }
 
         @DisplayName("5. Top menu elements are enable")
@@ -151,7 +168,7 @@ public class HurMycketFarJagLanaWebbPageTest {
         }
 
         @DisplayName("6. Try to hover over the element. Think how to test this.")
-        //@Disabled
+        @Disabled
         @Order(6)
         @Test
         public void hoverOverElements() throws  InterruptedException {
@@ -165,8 +182,6 @@ public class HurMycketFarJagLanaWebbPageTest {
         }
 
     //---------------------------------------------------------------------------------------------
-
-
         @DisplayName("7. Basic heading elements are visible")
         //@Disabled
         @Order(7)
@@ -177,7 +192,6 @@ public class HurMycketFarJagLanaWebbPageTest {
 
 
     //---------------------------------------------------------------------------------------------
-
         @DisplayName("8. BreadCrumb menu elements are visible")
         //@Disabled
         @Order(8)
@@ -186,10 +200,20 @@ public class HurMycketFarJagLanaWebbPageTest {
 
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-            Assertions.assertTrue(isElementVisible(driver, hurMycketLana.breadCrumbMenu.get(0)));
-            Assertions.assertTrue(isElementVisible(driver, hurMycketLana.breadCrumbMenu.get(1)));
-            Assertions.assertTrue(isElementVisible(driver, hurMycketLana.breadCrumbMenu.get(2)));
-            Assertions.assertTrue(isElementVisible(driver, hurMycketLana.breadCrumbMenu.get(3)));
+            if (view == "webb")
+            {
+                Assertions.assertTrue(isElementVisible(driver, hurMycketLana.breadCrumbMenu.get(0)));
+                Assertions.assertTrue(isElementVisible(driver, hurMycketLana.breadCrumbMenu.get(1)));
+                Assertions.assertTrue(isElementVisible(driver, hurMycketLana.breadCrumbMenu.get(2)));
+                Assertions.assertTrue(isElementVisible(driver, hurMycketLana.breadCrumbMenu.get(3)));
+            }
+
+            else
+            {
+                Assertions.assertTrue(isElementVisible(driver, hurMycketLana.breadCrumbMenu.get(2)));
+                Assertions.assertTrue(isElementVisible(driver, hurMycketLana.breadCrumbMenu.get(3)));
+            }
+
         }
 
         @DisplayName("9. BreadCrumb menu elements are enable")
@@ -201,9 +225,7 @@ public class HurMycketFarJagLanaWebbPageTest {
             //test should be here
         }
 
-
     //---------------------------------------------------------------------------------------------
-
         @DisplayName("10. Loan amount indication text elements are visible")
         @Disabled
         @Order(10)
@@ -289,29 +311,49 @@ public class HurMycketFarJagLanaWebbPageTest {
 
             }
 
-        @DisplayName("16. Inspect drop down menu")
+        @DisplayName("15. Inspect drop down menu")
         //@Disabled
         @Order(15)
         @Test
         public void dropDownMenuInspect() throws InterruptedException {
 
             driver.navigate().refresh();
-
             Actions actions = new Actions(driver);
-            actions.moveToElement(hurMycketLana.dropDownButton).click().build().perform();
-
-            Assertions.assertTrue(isElementVisible(driver, hurMycketLana.bostadsrattDropDown));
-            Assertions.assertTrue(isElementVisible(driver, hurMycketLana.hyresrattDropDown));
-            Assertions.assertTrue(isElementVisible(driver, hurMycketLana.villaDropDown));
-            Assertions.assertTrue(isElementVisible(driver, hurMycketLana.annanDropDown));
-
-            clickOnButton(driver, hurMycketLana.hyresrattDropDown);
-
-            for (WebElement element : hurMycketLana.bostadkostnadenRadioButtons)
+            if (view == "webb")
             {
-                actions.moveToElement(element).perform();
-                Assertions.assertTrue(isElementVisible(driver, element));
-                Assertions.assertTrue(isElementEnable(driver, element));
+                //driver.manage().timeouts().implicitlyWait( 10, TimeUnit.SECONDS);
+                actions.moveToElement(hurMycketLana.dropDownButtonWebb).click().build().perform();
+
+                Assertions.assertTrue(isElementVisible(driver, hurMycketLana.bostadsrattDropDownWebb));
+                Assertions.assertTrue(isElementVisible(driver, hurMycketLana.hyresrattDropDownWebb));
+                Assertions.assertTrue(isElementVisible(driver, hurMycketLana.villaDropDownWebb));
+                Assertions.assertTrue(isElementVisible(driver, hurMycketLana.annanDropDownWebb));
+
+                clickOnButton(driver, hurMycketLana.hyresrattDropDownWebb);
+
+                for (WebElement element : hurMycketLana.bostadkostnadenRadioButtons)
+                {
+                    actions.moveToElement(element).perform();
+                    Assertions.assertTrue(isElementVisible(driver, element));
+                    Assertions.assertTrue(isElementEnable(driver, element));
+                }
+            }
+
+            else
+            {
+                actions.moveToElement(hurMycketLana.dropDownButtonMobile).click().build().perform();
+
+                Assertions.assertTrue(isElementVisible(driver, hurMycketLana.bostadsrattDropDownMobile));
+                Assertions.assertTrue(isElementVisible(driver, hurMycketLana.hyresrattDropDownMobile));
+                Assertions.assertTrue(isElementVisible(driver, hurMycketLana.villaDropDownMobile));
+                Assertions.assertTrue(isElementVisible(driver, hurMycketLana.annanDropDownMobile));
+
+                for (WebElement element : hurMycketLana.bostadkostnadenRadioButtons)
+                {
+                    actions.moveToElement(element).perform();
+                    Assertions.assertTrue(isElementVisible(driver, element));
+                    Assertions.assertTrue(isElementEnable(driver, element));
+                }
             }
 
             Thread.sleep(3000);
@@ -325,20 +367,22 @@ public class HurMycketFarJagLanaWebbPageTest {
         public void dropDownMenuErrorMessage() throws InterruptedException {
 
             driver.navigate().refresh();
-
-            JavascriptExecutor js = (JavascriptExecutor) driver;
-            js.executeScript("window.scrollBy(0,300)", "");
-
             Actions actions = new Actions(driver);
-            actions.moveToElement(hurMycketLana.dropDownButton).click().build().perform();
+
+            if (view == "webb")
+            {
+                actions.moveToElement(hurMycketLana.dropDownButtonWebb).click().build().perform();
+            }
+            if (view == "mobile")
+            {
+                actions.moveToElement(hurMycketLana.dropDownButtonMobile).click().build().perform();
+            }
 
             clickOnButton(driver, hurMycketLana.plusButton);
 
             Assertions.assertTrue(isElementVisible(driver, hurMycketLana.hurSerDittBoendeUtErrorMessage));
             Thread.sleep(3000);
         }
-
-
 
         @DisplayName("18. Calculate loan and verify url according to loan")
         //@Disabled
@@ -347,18 +391,28 @@ public class HurMycketFarJagLanaWebbPageTest {
         public void clickOnBeraknaButtonAndVerifyURL() throws InterruptedException {
 
             driver.navigate().refresh();
+            Actions actions = new Actions(driver);
 
             isElementVisible(driver, hurMycketLana.manadsIncomstInput);
             sendText(driver, hurMycketLana.manadsIncomstInput, "300000");
             Thread.sleep(1000);
 
-            Actions actions = new Actions(driver);
-            actions.moveToElement(hurMycketLana.dropDownButton).click().build().perform();
+            if (view == "webb")
+            {
+                actions.moveToElement(hurMycketLana.dropDownButtonWebb).click().build().perform();
+                clickOnButton(driver, hurMycketLana.annanDropDownWebb);
+            }
 
-            clickOnButton(driver, hurMycketLana.annanDropDown);
+            else
+            {
+                actions.moveToElement(hurMycketLana.dropDownButtonMobile).click().build().perform();
+                clickOnButton(driver, hurMycketLana.annanDropDownMobile);
+            }
             Thread.sleep(1000);
+
             clickOnButton(driver, hurMycketLana.bostadkostnadenRadioButtons.get(1));
             Thread.sleep(1000);
+
             isElementVisible(driver, hurMycketLana.beraknaButton);
             clickOnButton(driver, hurMycketLana.beraknaButton);
 
@@ -375,8 +429,6 @@ public class HurMycketFarJagLanaWebbPageTest {
 
             Assertions.assertEquals(loanAmount, loanAmountURL);
 
-            driver.navigate().back();
-            driver.navigate().refresh();
         }
 
 

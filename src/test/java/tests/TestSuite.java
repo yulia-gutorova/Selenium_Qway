@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 import java.io.IOException;
 
 @RunWith(JUnitPlatform.class)
-@SelectClasses({LaneKalkylatorTest.class})
+@SelectClasses({HurMycketFarJagLanaWebbPageTest.class})
 
 public class TestSuite {
 
