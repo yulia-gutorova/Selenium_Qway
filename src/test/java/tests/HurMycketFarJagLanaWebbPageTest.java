@@ -3,7 +3,6 @@ package tests;
 import elementsLocators.HurMycketFarJagLanaWebbPage;
 import org.junit.jupiter.api.*;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -67,7 +66,6 @@ public class HurMycketFarJagLanaWebbPageTest {
 
         url = getURLFromProperties("src\\test\\java\\project.properties", "hur-mycket-far-jag-lana");
         driver.get(url);
-
     }
 
     /*---------------------------------------------------------------------
@@ -254,7 +252,6 @@ public class HurMycketFarJagLanaWebbPageTest {
 
             Assertions.assertTrue(isElementVisible(driver, hurMycketLana.totalSkuldInput));
             elementAttribute = getAttributeOfElement(driver, "value", hurMycketLana.totalSkuldInput);
-            System.out.println("Total skuld: " + elementAttribute);
             Assertions.assertTrue(elementAttribute.equals("0 kr")); //Test data should be separated
         }
 
@@ -266,7 +263,6 @@ public class HurMycketFarJagLanaWebbPageTest {
 
             Assertions.assertTrue(isElementVisible(driver, hurMycketLana.antalBarnCounter));
             elementText = getTextFromElement(driver, hurMycketLana.antalBarnCounter);
-            System.out.println("Antal barn: " + elementText);
             Assertions.assertTrue(elementText.equals("0 st")); //Test data should be separated
         }
 
@@ -304,9 +300,8 @@ public class HurMycketFarJagLanaWebbPageTest {
 
             Assertions.assertTrue(isElementVisible(driver, hurMycketLana.jaButtonErrorMessage));
             elementText = getTextFromElement(driver, hurMycketLana.jaButtonErrorMessage);
-            System.out.println("Felmeddelande: "+ elementText);
-            Assertions.assertTrue(elementText.equals("Har du en betalningsanmärkning så kan vi inte bevilja dig ett lån."));
 
+            Assertions.assertTrue(elementText.equals("Har du en betalningsanmärkning så kan vi inte bevilja dig ett lån."));
             Assertions.assertTrue(!isElementEnable(driver, hurMycketLana.beraknaButton));
 
             }

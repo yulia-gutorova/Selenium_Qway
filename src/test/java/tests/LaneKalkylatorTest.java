@@ -62,10 +62,8 @@ public class LaneKalkylatorTest {
                 driver = new ChromeDriver(chromeOptions);
                 break;
         }
-
         url = getURLFromProperties("src\\test\\java\\project.properties", "lane-kalkylator");
         driver.get(url);
-
     }
 
     @DisplayName("WebPage url is right")
@@ -123,7 +121,4 @@ public class LaneKalkylatorTest {
 
         Thread.sleep(3000);
     }
-
-
-
 }
