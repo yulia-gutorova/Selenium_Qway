@@ -75,7 +75,7 @@ public class HurMycketFarJagLanaWebbPageTest {
     @Disabled
     public static void tearDown()  {
 
-        //driver.quit();
+        driver.quit();
     }
     //---------------------------- Tests ----------------------------------
 
