@@ -1,14 +1,15 @@
 package tests;
 
 import elementsLocators.HurMycketFarJagLanaWebbPage;
+import org.apache.commons.io.FileUtils;
 import org.junit.jupiter.api.*;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -21,12 +22,14 @@ import static base.ElementsInteractingMethods.*;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 
-public class HurMycketFarJagLanaWebbPageTest {
+public class HurMycketFarJagLanaWebbPageTest extends SetUp {
 
-    public static WebDriver driver;
+    //public static WebDriver driver;
 
-    static String url, view ="";
+    //static String  view ="webb";
     String elementText, elementAttribute;
+    JavascriptExecutor js = (JavascriptExecutor) driver;
+    Actions actions = new Actions(driver);
 
     HurMycketFarJagLanaWebbPage hurMycketLana = new HurMycketFarJagLanaWebbPage(driver);
     //ElementsInteractingMethods interactingMethods = new ElementsInteractingMethods();
@@ -34,7 +37,7 @@ public class HurMycketFarJagLanaWebbPageTest {
     /*---------------------------------------------------------------------
      * BeforeAll() method executes before all methods
      *---------------------------------------------------------------------*/
-    @BeforeAll
+/*    @BeforeAll
     public static void setUpp() throws IOException {
 
         System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\Java\\chromedriver.exe");
@@ -66,23 +69,24 @@ public class HurMycketFarJagLanaWebbPageTest {
 
         url = getURLFromProperties("src\\test\\java\\project.properties", "hur-mycket-far-jag-lana");
         driver.get(url);
-    }
+    }*/
 
     /*---------------------------------------------------------------------
      * AfterAll() method executes before all methods
      *---------------------------------------------------------------------*/
-    @AfterAll
+/*    @AfterAll
     @Disabled
     public static void tearDown()  {
 
         driver.quit();
-    }
+    }*/
+
     //---------------------------- Tests ----------------------------------
 
     @DisplayName("1. WebPage url is right")
     @Order(1)
     @Test
-    public void pageUrlIsRight() throws  InterruptedException {
+    public void pageUrlIsRight() throws InterruptedException, IOException {
 
         waitUntilVisibility(driver, hurMycketLana.cookiesButton);
         clickOnButton(driver, hurMycketLana.cookiesButton);
@@ -91,6 +95,15 @@ public class HurMycketFarJagLanaWebbPageTest {
 
         String currentURL = driver.getCurrentUrl();
         Assertions.assertTrue(url.equalsIgnoreCase(currentURL));
+
+        System.out.println("URL: "  + url);
+        System.out.println("Current URL: "  + currentURL);
+
+        //how to take screenshots
+
+        File src = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(src, new File("c://Screenshots//test1.png"));
+
     }
 
     //---------------------------------------------------------------------------------------------
@@ -181,7 +194,7 @@ public class HurMycketFarJagLanaWebbPageTest {
 
     //---------------------------------------------------------------------------------------------
         @DisplayName("7. Basic heading elements are visible")
-        //@Disabled
+        @Disabled
         @Order(7)
         @Test
         public void basicHeadingElementsAreVisible()  {
@@ -233,7 +246,7 @@ public class HurMycketFarJagLanaWebbPageTest {
             //test should be here
         }
 
-        @DisplayName("11. Månadsinkomst element is visible and has a default value")
+        @DisplayName("11. Month income element is visible and has a default value")
         //@Disabled
         @Order(11)
         @Test
@@ -334,7 +347,7 @@ public class HurMycketFarJagLanaWebbPageTest {
                 }
             }
 
-            else
+            if (view == "mobile")
             {
                 actions.moveToElement(hurMycketLana.dropDownButtonMobile).click().build().perform();
 
@@ -359,24 +372,40 @@ public class HurMycketFarJagLanaWebbPageTest {
         //@Disabled
         @Order(17)
         @Test
-        public void dropDownMenuErrorMessage() throws InterruptedException {
+        public void dropDownMenuErrorMessage() throws InterruptedException, IOException {
 
+            System.out.println("View in 17 test: " + view);
             driver.navigate().refresh();
-            Actions actions = new Actions(driver);
+            Thread.sleep(3000);
+
+            js.executeScript("window.scrollBy(0,500)");
+            Thread.sleep(3000);
+
+
 
             if (view == "webb")
             {
+                //clickOnButton(driver, hurMycketLana.dropDownButtonWebb);
                 actions.moveToElement(hurMycketLana.dropDownButtonWebb).click().build().perform();
+                clickOnButton(driver, hurMycketLana.plusButton);
             }
+
             if (view == "mobile")
             {
                 actions.moveToElement(hurMycketLana.dropDownButtonMobile).click().build().perform();
+                clickOnButton(driver, hurMycketLana.totalSkuldInput);
+
             }
 
-            clickOnButton(driver, hurMycketLana.plusButton);
 
+            File src = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+            FileUtils.copyFile(src, new File("c://Screenshots//test17.png"));
+
+            String errorMessage = getTextFromElement(driver, hurMycketLana.hurSerDittBoendeUtErrorMessage);
+            System.out.println("Error message  hur ser dit boende ut: " + errorMessage);
             Assertions.assertTrue(isElementVisible(driver, hurMycketLana.hurSerDittBoendeUtErrorMessage));
             Thread.sleep(3000);
+
         }
 
         @DisplayName("18. Calculate loan and verify url according to loan")
@@ -398,7 +427,7 @@ public class HurMycketFarJagLanaWebbPageTest {
                 clickOnButton(driver, hurMycketLana.annanDropDownWebb);
             }
 
-            else
+            if (view == "mobile")
             {
                 actions.moveToElement(hurMycketLana.dropDownButtonMobile).click().build().perform();
                 clickOnButton(driver, hurMycketLana.annanDropDownMobile);

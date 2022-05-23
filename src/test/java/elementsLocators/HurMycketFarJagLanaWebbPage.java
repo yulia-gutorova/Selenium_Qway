@@ -94,8 +94,10 @@ public class HurMycketFarJagLanaWebbPage {
     @FindBy(xpath = "//span[text() = 'Hur ser ditt boende ut?']")
     public List<WebElement> hurSerDittBoendeUtText;
 
+    @FindBy(xpath = "//input[@name = 'existingLoanCredit']")
+    public WebElement totalSkuld;
 
-
+//existingLoanCredit
     @FindBy(xpath = "//span[@class='counter_item__1Pd4V']")
     public WebElement antalBarnCounter;
 
@@ -103,7 +105,7 @@ public class HurMycketFarJagLanaWebbPage {
     @FindBy(xpath = "//div[@class = 'error-pane_errorMessage__3BEc2 ']")
     public WebElement jaButtonErrorMessage;
 
-    @FindBy(xpath = "//div[text() = 'Hur ser ditt boende ut?']")
+    @FindBy(xpath = "//div[@class='error-pane_errorMessage__3BEc2 ']")
     public WebElement hurSerDittBoendeUtErrorMessage;
 
 
@@ -124,9 +126,10 @@ public class HurMycketFarJagLanaWebbPage {
 
 
 
-    @FindBy(xpath = "//span[text() = 'Hur ser ditt boende ut?']")
+    @FindBy(xpath = "//div[@class = 'dropdown_dropDownOuter__ulHdZ   ']")
     //@FindBy(xpath = "div[contains(@class, 'dropdown_list')]")
     //input[@type='checkbox']
+    //dropdown_dropDownOuter__ulHdZ
     //dropdown_list__9QvF- undefined
     //header_headerContent__3yBtsI
     public WebElement dropDownButtonWebb;
@@ -185,7 +188,14 @@ public class HurMycketFarJagLanaWebbPage {
     @FindBy(xpath = "//div[@class = 'radio-buttons-option_text__2maXO']")
     public List<WebElement> bostadkostnadenRadioButtons;
 
+// --------------------- Boton links ---------------
 
+    @FindBy(xpath = "//a[@href='/lana/'][@target='_top']")
+    public WebElement lanaPengar;
 
+    //@FindBy(xpath = "//a[@href='/lana/']")
+    //public WebElement lanaPengar;
 
+    @FindBy(xpath = "//ul[@class= 'footer-section_links__Jqt-L links']/li/a")
+    public List<WebElement> allBottomLinks;
 }
